@@ -1,14 +1,3 @@
-
-DROP TYPE IF EXISTS "gender_options";
-CREATE TYPE "gender_options" AS ENUM (
-  'm',
-  'f',
-  'M',
-  'F',
-  'x',
-  'X'
-);
-
 DROP TYPE IF EXISTS "fiscal_status";
 CREATE TYPE "fiscal_status" AS ENUM (
   'monotributista',
@@ -22,15 +11,13 @@ CREATE TYPE "fiscal_status" AS ENUM (
 DROP TABLE IF EXISTS "professional" CASCADE;
 CREATE TABLE "professional" (
     "professional_id"   INTEGER generated ALWAYS as IDENTITY PRIMARY KEY,
+    "mongo_id"          TEXT            NOT NULL UNIQUE,
     "name"              VARCHAR(100)    NOT NULL,
     "last_name"         VARCHAR(100)    NOT NULL,
     "profile"           VARCHAR(100) 	NOT NULL UNIQUE,
-    "mongo_id"          TEXT            NOT NULL UNIQUE,
-    "gender"            gender_options  NOT NULL,
     "deleted_at"        TIMESTAMP,
     "created_at"        TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at"        TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP
-
 );
 
 
