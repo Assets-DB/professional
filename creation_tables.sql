@@ -13,7 +13,6 @@ CREATE TABLE "professional" (
     "professional_id"   INTEGER generated ALWAYS as IDENTITY PRIMARY KEY,
     "name"              VARCHAR(100)    NOT NULL,
     "last_name"         VARCHAR(100)    NOT NULL,
-    "profile"           VARCHAR(100) 	NOT NULL UNIQUE,
     "deleted_at"        TIMESTAMP,
     "created_at"        TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at"        TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP
